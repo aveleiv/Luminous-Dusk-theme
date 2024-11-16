@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body class="bg-background font-sans text-primaryText leading-relaxed">
+  <header class="bg-secondaryBg">
+    <div class="mx-auto px-6 py-4 container">
+      {{ partial "header.html" . }}
+    </div>
+  </header>
+
+  <main class="mx-auto px-6 py-8 container">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="bg-secondaryBg">
+    <div class="mx-auto px-6 py-4 text-center container">
+      {{ partial "footer.html" . }}
+    </div>
+  </footer>
+</body>
+
+{{ if .Store.Get "hasMermaid" }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    themeVariables: {
+      /* Backgrounds */
+      background: "#1E1E2E", /* Diagram background */
+      primaryColor: "#3C3C4E", /* Node background */
+      secondaryColor: "#4B5563", /* Secondary node background */
+      tertiaryColor: "#FFA94D", /* Accent color nodes */
+      primaryBorderColor: "#FF6F61", /* Node border */
+
+      /* Text Colors */
+      primaryTextColor: "#E0E0E0", /* Default text */
+      secondaryTextColor: "#A5A5B1", /* Secondary text */
+      tertiaryTextColor: "#FFDE7D", /* Highlight text */
+      nodeTextColor: "#FFFFFF", /* Node text */
+      edgeLabelTextColor: "#E0E0E0", /* Edge label text */
+
+      /* Lines and Arrows */
+      lineColor: "#81C4E9", /* Connecting lines */
+      arrowheadColor: "#81C4E9", /* Arrows */
+
+      /* Edge Label Backgrounds */
+      edgeLabelBackground: "#2E2E3E", /* Label background for edges */
+
+      /* Fonts */
+      fontFamily: "sans-serif", /* Matches Tailwind sans font */
+      fontSize: "16px", /* Base font size */
+      tertiaryFontColor: "#D3B4F0", /* Accent text */
+      titleColor: "#FFFFFF", /* Diagram title */
+
+      /* Flowchart specifics */
+      nodeBorder: "#FFB15A", /* Node border */
+      clusterBkg: "#2E2E3E", /* Cluster background */
+      clusterBorder: "#FF6F61", /* Cluster border */
+    }
+  });
+</script>
+{{ end }}
+
+</html>

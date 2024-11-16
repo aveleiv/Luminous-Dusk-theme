@@ -1,0 +1,17 @@
+name = 'Luminous Dusk'
+license = 'MIT'
+licenselink = 'https://github.com/aveleiv/Luminous-Dusk-theme/LICENSE'
+description = 'Hugo theme in dark mode'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/aveleiv/Luminous-Dusk-theme'
+
+
+# Taxonomy terms
+tags = ['blog', 'developer']
+features = ['dark', 'mermaid', 'codeblock']
+
+# If the theme has a single author
+[author]
+  name = 'Leonid Ivakhnenko'
+  homepage = 'https://github.com/aveleiv'

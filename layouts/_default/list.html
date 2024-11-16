@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+<h1 class="mb-8 font-bold text-4xl text-center">{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ if eq .Kind "taxonomy" }}
+
+<div class="gap-4 grid grid-cols-2">
+  {{ range sort .Pages "Title" }}
+  <div class="flex items-center">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="text-secondaryText text-sm">: {{ len .Pages }}</span>
+  </div>
+  {{ end }}
+</div>
+
+{{ else }}
+
+{{ $paginator := .Paginate .Pages 20 }} <!-- Displays 5 cards per page -->
+
+<div class="post-grid-wide">
+    {{ range $paginator.Pages }}
+    <div class="post-card post-card-full">
+        <h2 class="post-card-title">
+            <a href="{{ .RelPermalink }}" class="post-card-link">{{ .LinkTitle }}</a>
+        </h2>
+        <div class="post-card-summary">
+          {{ .Summary | plainify | truncate 500 }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="post-card-button">
+            Read More &rarr;
+        </a>
+    </div>
+    {{ end }}
+</div>
+
+<div class="pagination">
+    <div>
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-button">Previous</a>
+        {{ else }}
+        <span class="pagination-placeholder"></span>
+        {{ end }}
+    </div>
+    <div>
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-button">Next</a>
+        {{ else }}
+        <span class="pagination-placeholder"></span>
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}
+
+{{ end }}

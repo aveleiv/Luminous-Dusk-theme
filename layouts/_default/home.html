@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+{{ .Content }}
+
+<h1 class="mb-8 font-bold text-4xl text-center">Latest Posts</h1>
+
+{{ $numPosts := 5 }} <!-- Change this to set the number of posts -->
+<div class="post-grid">
+    {{ range first $numPosts (sort site.RegularPages "Date" "desc") }}
+    <div class="post-card">
+        <h2 class="post-card-title">
+            <a href="{{ .RelPermalink }}" class="post-card-link">{{ .LinkTitle }}</a>
+        </h2>
+        <div class="post-card-summary">
+            {{ .Summary | plainify | truncate 200 }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="post-card-button">
+            Read More &rarr;
+        </a>
+    </div>
+    {{ end }}
+</div>
+
+{{ end }}

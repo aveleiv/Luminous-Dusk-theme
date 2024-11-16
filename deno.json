@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "build": "deno run --allow-sys --allow-env --allow-read --allow-write npm:tailwindcss build src/assets/css/styles.css -o assets/css/styles.css",
+    "watch": "deno run --allow-sys --allow-env --allow-read --allow-write npm:tailwindcss build src/assets/css/styles.css -o assets/css/styles.css --watch"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "autoprefixer": "npm:autoprefixer@^10.4.20",
+    "postcss": "npm:postcss@^8.4.49",
+    "tailwindcss": "npm:tailwindcss@^3.4.15"
+  }
+}

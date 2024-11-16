@@ -1,0 +1,528 @@
+/* Import Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles for Common HTML Tags */
+
+/* Body and General Text */
+body {
+    @apply bg-background text-primaryText font-sans leading-relaxed;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-highlightWhite font-bold mb-4;
+}
+
+h1 {
+    @apply text-4xl;
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+h3 {
+    @apply text-2xl;
+}
+
+h4 {
+    @apply text-xl;
+}
+
+h5 {
+    @apply text-lg;
+}
+
+h6 {
+    @apply text-base;
+}
+
+/* Paragraphs */
+p {
+    @apply mb-6 text-primaryText;
+}
+
+/* Links */
+a {
+    @apply text-sunshineYellow hover:text-accentOrange transition-colors duration-200;
+}
+
+/* Lists */
+ul {
+    @apply list-disc list-inside mb-6;
+}
+
+ol {
+    @apply list-decimal list-inside mb-6;
+}
+
+li {
+    @apply mb-2 text-primaryText;
+}
+
+/* Blockquote */
+blockquote {
+    @apply border-l-4 border-divider pl-4 italic text-secondaryText mb-6;
+}
+
+/* Code Inline */
+p > code {
+    @apply bg-secondaryBg text-mintGreen px-1 py-0.5 font-mono text-sm;
+}
+
+code {
+    @apply font-mono text-sm;
+}
+
+/* Preformatted Block (Code Block) */
+pre {
+    @apply bg-secondaryBg text-primaryText p-4 rounded-md font-mono overflow-x-auto my-6;
+}
+
+/* Tables */
+table {
+    @apply w-auto border-collapse border border-divider mb-6;
+}
+
+th {
+    @apply bg-secondaryBg text-highlightWhite font-bold p-2 border border-divider;
+}
+
+td {
+    @apply bg-secondaryBg text-primaryText p-2 border border-divider;
+}
+
+/* Horizontal Rule */
+hr {
+    @apply border-divider my-8;
+}
+
+/* Images */
+img {
+    @apply max-w-full h-auto rounded-md;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+button {
+    @apply bg-secondaryBg text-primaryText border border-divider rounded-md p-2;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    @apply outline-none border-mintGreen ring-2 ring-mintGreen;
+}
+
+button {
+    @apply bg-accentOrange text-highlightWhite font-bold py-2 px-4 rounded hover:bg-softCoral transition-colors duration-200;
+}
+
+/* Submenu container: hidden by default */
+.submenu {
+    @apply absolute hidden group-hover:block bg-secondaryBg mt-2 p-2 space-y-2 rounded shadow-lg;
+}
+
+/* Top-level menu list: horizontal */
+nav ul {
+    @apply flex space-x-4 list-none;
+}
+
+/* Submenu list: vertical alignment */
+nav ul .submenu {
+    @apply flex flex-col list-none;
+}
+
+.menu-link {
+    @apply uppercase font-bold;
+    /* Uppercase text for all menu links */
+}
+
+/* Styling for the tags list container */
+.tags-list {
+    @apply mb-4 flex space-x-2;
+  }
+  
+  /* Styling for the list of tags */
+  .tags-list ul {
+    @apply flex flex-wrap space-x-2 list-none; /* Removes bullets, wraps items */
+  }
+  
+  /* Individual tag links */
+  .tags-list .menu-link {
+    @apply uppercase; /* Keeps default color, adds hover underline */
+  }
+
+  /* Grid for posts */
+.post-grid {
+    @apply gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  /* Card container */
+  .post-card {
+    @apply bg-secondaryBg shadow-lg p-6 rounded-xl transform transition duration-300 hover:scale-105;
+  }
+  
+  /* Card title */
+  .post-card-title {
+    @apply mb-4 font-bold text-2xl text-highlightWhite;
+  }
+  
+  /* Link in the title */
+  .post-card-link {
+    @apply hover:underline;
+  }
+  
+  /* Summary text */
+  .post-card-summary {
+    @apply mb-4 text-primaryText text-xl;
+  }
+  
+  /* "Read More" button */
+  .post-card-button {
+    @apply inline-block mt-4 bg-accentOrange text-highlightWhite font-semibold py-2 px-4 rounded hover:bg-softCoral transition;
+  }
+  
+  
+/* Grid for posts (single column for full-width cards) */
+.post-grid-wide {
+    @apply gap-6 grid grid-cols-1;
+  }
+  
+  /* Full-width card container */
+  .post-card-full {
+    @apply bg-secondaryBg shadow-lg p-6 rounded-xl transition;
+  }
+  
+  /* Card title */
+  .post-card-title {
+    @apply mb-4 font-bold text-2xl text-highlightWhite;
+  }
+  
+  /* Summary text */
+  .post-card-summary {
+    @apply mb-4 text-primaryText text-xl;
+  }
+  
+  /* "Read More" button */
+  .post-card-button {
+    @apply inline-block mt-4 bg-secondaryBg text-highlightWhite font-semibold py-2 px-4 rounded hover:bg-accentOrange hover:text-secondaryText transition;
+  }
+
+  /* For post card container */
+.post-card,
+.post-card-full {
+    @apply max-w-4xl; /* You can adjust this value to make it more narrow */
+}
+
+/* For post grid container */
+.post-grid,
+.post-grid-wide {
+    @apply max-w-4xl mx-auto; /* Add margin for centering and max-width for narrowing */
+}
+
+/* For general content container */
+.container {  /* Assuming you have a .container class */
+    @apply max-w-5xl mx-auto; /* Customize the max width here */
+}
+
+/* For the Chroma (code block) container */
+.chroma {
+    @apply max-w-5xl mx-auto; /* Adjust the width and center */
+}
+
+  
+ /* Pagination container */
+.pagination {
+    @apply flex justify-between mt-8;
+  }
+  
+  /* Pagination buttons */
+  .pagination-button {
+    @apply bg-secondaryBg text-primaryText font-semibold py-2 px-4 rounded hover:bg-divider transition;
+  }
+  
+  /* Placeholder for alignment consistency when buttons are missing */
+  .pagination-placeholder {
+    @apply invisible; /* Keeps the space without displaying content */
+  }
+
+  .copy-btn {
+    @apply absolute top-2 right-2 bg-secondaryBg text-primaryText text-sm px-2 py-1 rounded hover:bg-divider transition;
+  }
+  
+  
+/* Scoped Mermaid container */
+.mermaid-container {
+    @apply bg-secondaryBg p-4 rounded-lg shadow-lg my-6;
+  }
+  
+  .mermaid-container .mermaid {
+    @apply text-primaryText;
+  }
+  
+  /* Node styles */
+  .mermaid-container .node rect {
+    @apply bg-secondaryBg stroke-accentOrange shadow;
+  }
+  
+  .mermaid-container .node text {
+    @apply fill-highlightWhite font-bold;
+  }
+  
+  /* Edge styles */
+  .mermaid-container .edgePath path {
+    @apply stroke-softBlue;
+  }
+  
+  .mermaid-container .arrowheadPath {
+    @apply fill-softBlue;
+  }
+  
+  /* Titles */
+  .mermaid-container .title {
+    @apply text-highlightWhite font-bold text-xl;
+  }
+  
+
+/* Code Block Container */
+/* Applies overall styling for code blocks, including background, text color, border, padding, and font */
+.chroma {
+    @apply bg-secondaryBg text-primaryText rounded-sm border border-divider p-4 font-mono;
+}
+
+/* Error */
+/* Styles for error messages or error-related code elements */
+.chroma .err {
+    @apply text-softCoral;
+}
+
+/* Highlighted Line */
+/* Background color for highlighting specific lines in the code block */
+.chroma .hl {
+    @apply bg-divider;
+}
+
+/* Line Numbers */
+/* Styling for individual line numbers */
+.chroma .ln {
+    @apply text-divider user-select-none mr-2 pr-1 whitespace-pre;
+}
+
+/* Line Numbers Table */
+/* Styling for the table containing line numbers */
+.chroma .lnt {
+    @apply text-secondaryText user-select-none mr-2 pr-1 whitespace-pre;
+}
+
+/* Keywords */
+/* General keywords, such as `if`, `else`, `return` */
+.chroma .k {
+    @apply text-accentOrange;
+}
+
+/* Keywords used for declarations, e.g., `function`, `class` */
+.chroma .kd {
+    @apply text-accentOrange;
+}
+
+/* Keywords for types, e.g., `int`, `String` */
+.chroma .kt {
+    @apply text-accentOrange;
+}
+
+/* Reserved keywords, e.g., `import`, `from` */
+.chroma .kr {
+    @apply text-accentOrange;
+}
+
+/* Other Keywords */
+/* Constant keywords, e.g., `const`, `let` */
+.chroma .kc {
+    @apply text-softBlue;
+}
+
+/* Property keywords, e.g., object properties or attributes */
+.chroma .py {
+    @apply text-softBlue;
+}
+
+/* Keywords for labels */
+.chroma .nl {
+    @apply text-softBlue;
+}
+
+/* HTML/XML tags */
+.chroma .nt {
+    @apply text-primaryText;
+}
+
+/* Names */
+/* General names (e.g., variables, attributes) */
+.chroma .n {
+    @apply text-primaryText;
+}
+
+/* Attribute names */
+.chroma .na {
+    @apply text-primaryText;
+}
+
+/* Built-in names */
+.chroma .nb {
+    @apply text-primaryText italic;
+}
+
+/* Namespace names, e.g., `namespace::class` */
+.chroma .nn {
+    @apply text-primaryText font-bold;
+}
+
+/* Class names */
+.chroma .nc {
+    @apply text-primaryText;
+}
+
+/* Built-in pseudo names */
+.chroma .bp {
+    @apply text-primaryText;
+}
+
+/* Other names, e.g., dynamic variables */
+.chroma .nx {
+    @apply text-primaryText;
+}
+
+/* Functions and Decorators */
+/* Function names */
+.chroma .nf {
+    @apply text-sunshineYellow font-bold;
+}
+
+/* Decorators, e.g., `@decorator` in Python */
+.chroma .nd {
+    @apply text-sunshineYellow font-bold;
+}
+
+/* Literals and Strings */
+/* General string literals */
+.chroma .s {
+    @apply text-mintGreen;
+}
+
+/* String parts (e.g., `interpolation`) */
+.chroma .sx,
+.chroma .si {
+    @apply text-mintGreen;
+}
+
+/* Single-quoted string */
+.chroma .s1 {
+    @apply text-mintGreen;
+}
+
+/* Double-quoted string */
+.chroma .s2 {
+    @apply text-mintGreen;
+}
+
+/* Numbers */
+/* General numbers, e.g., integers, floats */
+.chroma .m {
+    @apply text-sunshineYellow;
+}
+
+/* Operators */
+/* General operators, e.g., `+`, `-`, `*`, `/` */
+.chroma .o {
+    @apply text-accentOrange font-bold;
+}
+
+/* Word operators, e.g., `and`, `or` */
+.chroma .ow {
+    @apply text-accentOrange font-bold;
+}
+
+/* Comments */
+/* General comments */
+.chroma .c {
+    @apply text-secondaryText italic;
+}
+
+/* Multiline comments */
+.chroma .cm {
+    @apply text-secondaryText italic;
+}
+
+/* Hash comments, e.g., `# comment` in Python */
+.chroma .ch {
+    @apply text-secondaryText italic;
+}
+
+/* Single-line comments */
+.chroma .c1 {
+    @apply text-secondaryText italic;
+}
+
+/* Special comments, e.g., TODO or NOTE */
+.chroma .cs {
+    @apply text-secondaryText font-bold italic;
+}
+
+/* Preprocessor comments, e.g., `#include` in C */
+.chroma .cp {
+    @apply text-secondaryText font-bold italic;
+}
+
+/* Headings */
+/* Headings in code, e.g., `## Section` */
+.chroma .gh {
+    @apply text-softBlue font-bold;
+}
+
+/* Generic underline or emphasis */
+.chroma .gu {
+    @apply text-softBlue font-bold;
+}
+
+/* Emphasized text (italic) */
+.chroma .ge {
+    @apply italic;
+}
+
+/* Punctuation */
+/* General punctuation, e.g., `,`, `;`, `.` */
+.chroma .p {
+    @apply text-primaryText;
+}
+
+/* Deleted and Inserted */
+/* Deleted text (diff or git) */
+.chroma .gd {
+    @apply text-softCoral bg-[#3C3C4E];
+}
+
+/* Inserted text (diff or git) */
+.chroma .gi {
+    @apply text-mintGreen bg-[#2E2E3E];
+}
+
+/* Table Elements */
+/* Line number table */
+.chroma .lntable {
+    @apply p-0 m-0 border-0;
+}
+
+/* Line number table cells */
+.chroma .lntd {
+    @apply p-0 m-0 border-0;
+}
